@@ -18,34 +18,42 @@
 
 </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Tester</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    	testDivision</span><span class="pun">();</span><span class="pln">
-    	testFunWithStrings</span><span class="pun">();</span><span class="pln">
-        testZipper</span><span class="pun">();</span><span class="pln">
-    </span><span class="pun">}</span><span class="pln">
+    package lab05;
 
-    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> testDivision</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-        </span><span class="typ">Division</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Division</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">double</span><span class="pun">[]{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,</span><span class="lit">0</span><span class="pun">,</span><span class="lit">7</span><span class="pun">,</span><span class="lit">8</span><span class="pun">,</span><span class="lit">9</span><span class="pun">,</span><span class="lit">0</span><span class="pun">});</span><span class="pln">
-        </span><span class="kwd">set</span><span class="pun">.</span><span class="pln">removeZeroes</span><span class="pun">();</span><span class="pln">
-        </span><span class="kwd">set</span><span class="pun">.</span><span class="pln">divide</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Expecting [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5]"</span><span class="pun">);</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Received  "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"\n"</span><span class="pun">);</span><span class="pln">
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class Tester {
+
+    public static void main(String[] args) {
+    	testDivision();
+    	testFunWithStrings();
+        testZipper();
+    }
+
+    public static void testDivision() {
+        Division set = new Division(new double[]{1,2,3,0,4,5,0,6,0,7,8,9,0});
+        set.removeZeroes();
+        set.divide(2);
+        System.out.println("Expecting [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5]");
+        System.out.println("Received  " + set + "\n");
         
-    </span><span class="pun">}</span><span class="pln">
+    }
 
-    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> testFunWithStrings</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    	</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> list1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;(</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">asList</span><span class="pun">(</span><span class="str">"to"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"cellphone"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"truck"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"fire"</span><span class="pun">));</span><span class="pln">
-    	</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> list2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;(</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">asList</span><span class="pun">(</span><span class="str">"delicious"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"copper"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"blue"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"red"</span><span class="pun">));</span><span class="pln">
-    	</span><span class="typ">FunWithStrings</span><span class="pun">.</span><span class="pln">swapMaxes</span><span class="pun">(</span><span class="pln">list1</span><span class="pun">,</span><span class="pln"> list2</span><span class="pun">);</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Expecting [to, delicious, truck, fire] [cellphone, copper, blue, red]"</span><span class="pun">);</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Received  "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> list1 </span><span class="pun">+</span><span class="pln"> </span><span class="str">" "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> list2 </span><span class="pun">+</span><span class="pln"> </span><span class="str">"\n"</span><span class="pun">);</span><span class="pln">
-    </span><span class="pun">}</span><span class="pln">
+    public static void testFunWithStrings() {
+    	ArrayList<String> list1 = new ArrayList<String>(Arrays.asList("to", "cellphone", "truck", "fire"));
+    	ArrayList<String> list2 = new ArrayList<String>(Arrays.asList("delicious", "copper", "blue", "red"));
+    	FunWithStrings.swapMaxes(list1, list2);
+        System.out.println("Expecting [to, delicious, truck, fire] [cellphone, copper, blue, red]");
+        System.out.println("Received  " + list1 + " " + list2 + "\n");
+    }
 
-    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> testZipper</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-        </span><span class="kwd">int</span><span class="pln"> ret</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Zipper</span><span class="pun">.</span><span class="pln">zip</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">[]{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">},</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">[]{</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">});</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Expecting [1, 2, 3, 4, 5, 6, 7, 8]"</span><span class="pun">);</span><span class="pln">
-        </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Received  "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="pln">ret</span><span class="pun">));</span><span class="pln">
-    </span><span class="pun">}</span><span class="pln">
+    public static void testZipper() {
+        int ret[] = Zipper.zip(new int[]{1, 3, 5, 7}, new int[]{2, 4, 6, 8});
+        System.out.println("Expecting [1, 2, 3, 4, 5, 6, 7, 8]");
+        System.out.println("Received  " + Arrays.toString(ret));
+    }
+}
 </span><span class="pun">}</span></pre><br></div>
 <div data-pats="folders" class="post_region_folders">
   <span>
